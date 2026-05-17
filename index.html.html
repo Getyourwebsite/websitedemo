@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dave | Brand Architect — Strategic Brand Consultancy</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefefe;
+      color: #111;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header & navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1e2b3c, #2c4c6e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #2c7da0;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e2b3c;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #e67e22;
+    }
+
+    /* buttons & general */
+    .btn-primary {
+      background: #e67e22;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-block;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 5px 12px rgba(230,126,34,0.25);
+    }
+
+    .btn-primary:hover {
+      background: #cf711f;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #e67e22;
+      color: #e67e22;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #e67e22;
+      color: white;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+      color: #1e2b3c;
+    }
+
+    .hero-content .highlight {
+      color: #e67e22;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin: 28px 0;
+    }
+
+    .stat-item h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #2c7da0;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 32px;
+      object-fit: cover;
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      border: 6px solid white;
+    }
+
+    /* achievement badges */
+    .badge-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      background: #f0f4f8;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1e4663;
+    }
+
+    /* problem touchpoints */
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1e2b3c;
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px auto;
+      color: #4a627a;
+      font-size: 1.1rem;
+    }
+
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .problem-card {
+      background: white;
+      padding: 32px 24px;
+      border-radius: 28px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
+      border: 1px solid #eef2f6;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-6px);
+      border-color: #e67e22;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+
+    .problem-icon {
+      font-size: 2.5rem;
+      color: #e67e22;
+      margin-bottom: 20px;
+    }
+
+    .problem-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    /* success stories (fake examples) */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .story-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      border-left: 6px solid #e67e22;
+    }
+
+    .story-card i {
+      font-size: 2rem;
+      color: #e67e22;
+      margin-bottom: 16px;
+    }
+
+    .story-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .story-metric {
+      font-weight: 800;
+      color: #2c7da0;
+      margin-top: 12px;
+    }
+
+    /* reviews */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .review-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+      border: 1px solid #edf2f7;
+    }
+
+    .stars {
+      color: #f4b942;
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+    }
+
+    .review-text {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      color: #2c3e4e;
+    }
+
+    .review-author {
+      font-weight: 700;
+      margin-top: 12px;
+    }
+
+    /* booking form area */
+    .booking-section {
+      background: linear-gradient(135deg, #f9fbfd 0%, #f1f5f9 100%);
+      border-radius: 48px;
+      padding: 48px 40px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+      color: #1e2b3c;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #cfdfed;
+      border-radius: 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: 0.2s;
+      background: white;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #e67e22;
+      box-shadow: 0 0 0 3px rgba(230,126,34,0.2);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .booking-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+
+    .contact-touch {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-touch span i {
+      margin-right: 8px;
+      color: #e67e22;
+    }
+
+    .submit-message {
+      margin-top: 16px;
+      font-weight: 500;
+      color: #2c7da0;
+    }
+
+    footer {
+      background: #0f1a24;
+      color: #cfdfed;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero, .booking-grid {
+        grid-template-columns: 1fr;
+      }
+      .navbar {
+        flex-direction: column;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 0 24px;
+      }
+      section {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <h2>DAVE <span>brand architect</span></h2>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#problems">Brand pain points</a></li>
+        <li><a href="#success">Success Stories</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#booking">Book Dave</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero + photo + stats -->
+  <section id="home">
+    <div class="container">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Turn invisibility into <span class="highlight">brand magnetism</span></h1>
+          <p style="font-size: 1.2rem; margin-bottom: 16px;">I'm Dave — brand strategist. I've helped 50+ businesses fix broken brand identities, skyrocket visibility, and build trust that converts.</p>
+          <div class="hero-stats">
+            <div class="stat-item"><h3>50+</h3><p>consultations</p></div>
+            <div class="stat-item"><h3>96%</h3><p>client retention</p></div>
+            <div class="stat-item"><h3>12+</h3><p>industries</p></div>
+          </div>
+          <div class="badge-grid">
+            <div class="badge"><i class="fas fa-trophy"></i> Top Rated 2025</div>
+            <div class="badge"><i class="fas fa-chart-line"></i> +187% avg brand lift</div>
+            <div class="badge"><i class="fas fa-certificate"></i> Certified Brand Architect</div>
+          </div>
+          <a href="#booking" class="btn-primary" style="margin-top: 24px; display: inline-block;"><i class="fas fa-calendar-check"></i> Book a free discovery call</a>
+        </div>
+        <div class="hero-image">
+          <!-- Dave's photo: professional consultant image - replace with actual Dave photo -->
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&h=600&fit=crop" alt="Dave - Brand Consultant" style="height: auto; max-width: 100%;">
+          <p style="font-size: 0.8rem; text-align: center; margin-top: 12px;">Dave Roberts — Brand Consultant</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Multiple brand problem touchpoints (Business visibility & brand issues) -->
+  <section id="problems" style="background: #fafcff;">
+    <div class="container">
+      <div class="section-title">Brand blind spots? <span style="color:#e67e22;">Let's solve them.</span></div>
+      <div class="section-sub">Your brand might be suffering from one (or more) of these invisible killers — each touchpoint matters.</div>
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-icon"><i class="fas fa-eye-slash"></i></div>
+          <h3>Invisible to customers</h3>
+          <p>No distinct presence in crowded markets. Dave builds visual & verbal identity that makes you impossible to ignore.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon"><i class="fas fa-random"></i></div>
+          <h3>Inconsistent messaging</h3>
+          <p>Confusing tone & scattered branding kills trust. Dave crafts unified brand stories that resonate across every channel.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon"><i class="fas fa-chart-simple"></i></div>
+          <h3>Low engagement / loyalty</h3>
+          <p>People don't remember you? Brand-led strategies that turn casual leads into raving fans + repeat buyers.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Digital footprint crisis</h3>
+          <p>Weak online authority & outdated branding. Dave redesigns digital presence + reputation architecture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fake examples + achievements (50+ consultations and high impact results) -->
+  <section id="success">
+    <div class="container">
+      <div class="section-title">Real impact · <span class="highlight">Fake names, genuine results</span></div>
+      <div class="section-sub">Dave's brand interventions delivered tangible growth — here are just a few transformations from his portfolio.</div>
+      <div class="stories-grid">
+        <div class="story-card">
+          <i class="fas fa-chart-line"></i>
+          <h4>NexaTech (SaaS startup)</h4>
+          <p>Complete brand repositioning & visual identity overhaul. Result: 3x organic traffic & +210% conversion rate in 4 months.</p>
+          <div class="story-metric"><i class="fas fa-arrow-up"></i> 210% growth</div>
+        </div>
+        <div class="story-card">
+          <i class="fas fa-leaf"></i>
+          <h4>GreenLeaf Organics</h4>
+          <p>Brand narrative and packaging redesign → 85% increase in retail partnerships + featured in "Eco Business Weekly".</p>
+          <div class="story-metric"><i class="fas fa-store"></i> 85% retail expansion</div>
+        </div>
+        <div class="story-card">
+          <i class="fas fa-gem"></i>
+          <h4>Luxe Haven Hotels</h4>
+          <p>Rebranding & digital brand experience overhaul. Boosted direct bookings by 124% and average stay value +38%.</p>
+          <div class="story-metric"><i class="fas fa-dollar-sign"></i> +$4.2M annual revenue</div>
+        </div>
+        <div class="story-card">
+          <i class="fas fa-people-arrows"></i>
+          <h4>Finwise (fintech)</h4>
+          <p>Brand trust architecture & messaging. Increased customer acquisition by 177% after 6 months of brand rollout.</p>
+          <div class="story-metric"><i class="fas fa-rocket"></i> 177% user base growth</div>
+        </div>
+      </div>
+      <div style="margin-top: 48px; text-align: center;">
+        <div class="badge" style="background:#e67e22; color:white; padding: 12px 28px; font-size:1.1rem;"><i class="fas fa-check-circle"></i> 50+ successful brand consultations & counting</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews section (authentic, fake but realistic) -->
+  <section id="reviews" style="background: #ffffff;">
+    <div class="container">
+      <div class="section-title">What clients say <i class="fas fa-comment-dots" style="color:#e67e22;"></i></div>
+      <div class="section-sub">Over 50+ business owners and marketing leads trust Dave's process — real transformations, real stories.</div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <div class="review-text">"Dave didn’t just tweak our logo — he rebuilt our entire brand positioning. Our visibility skyrocketed, leads doubled in 90 days. Absolute game changer."</div>
+          <div class="review-author">— Jamie Lin, CEO of Kōloh Digital</div>
+        </div>
+        <div class="review-card">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <div class="review-text">"We were invisible online despite having a great product. Dave gave us a focused brand strategy and within weeks our customers started noticing the difference."</div>
+          <div class="review-author">— Marcus Velez, Founder VeloFit</div>
+        </div>
+        <div class="review-card">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+          <div class="review-text">"One of the sharpest brand consultants I’ve worked with. He identified three core brand problems we didn’t even know we had. Now our conversion is insane."</div>
+          <div class="review-author">— Sophia Chen, CMO at Halo Robotics</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking page + appointment form  + additional touchpoints -->
+  <section id="booking">
+    <div class="container">
+      <div class="booking-section">
+        <div class="booking-grid">
+          <div class="booking-info">
+            <h3><i class="fas fa-calendar-alt" style="color:#e67e22;"></i> Book Dave for a consultation</h3>
+            <p style="margin: 16px 0 24px 0; font-size: 1.05rem;">Whether you struggle with low brand visibility, broken identity, or need a strategic reboot — Dave personally helps you build an undeniable brand. Fill the form and get a custom strategy session.</p>
+            <div class="contact-touch">
+              <span><i class="fas fa-phone-alt"></i> +1 (800) 234-5678</span>
+              <span><i class="fas fa-envelope"></i> dave@brandarchitect.com</span>
+              <span><i class="fas fa-comments"></i> 30 min free discovery</span>
+            </div>
+            <div style="margin-top: 32px; background: #ffffffb0; border-radius: 24px; padding: 20px;">
+              <i class="fas fa-chalkboard-user"></i> <strong>Touchpoints for your brand struggle:</strong>
+              <ul style="margin-top: 12px; margin-left: 24px;">
+                <li>📉 Low visibility & recall → Brand diagnostic</li>
+                <li>🔀 Incoherent identity → Unified brand voice workshop</li>
+                <li>📱 Broken customer journey → Touchpoint mapping</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <form id="appointmentForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Full name *</label>
+                  <input type="text" id="name" required placeholder="e.g., Alex Morgan">
+                </div>
+                <div class="form-group">
+                  <label>Email address *</label>
+                  <input type="email" id="email" required placeholder="hello@company.com">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Phone number *</label>
+                  <input type="tel" id="phone" required placeholder="+1 123 456 7890">
+                </div>
+                <div class="form-group">
+                  <label>Preferred date *</label>
+                  <input type="date" id="date" required min="">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Preferred time *</label>
+                  <select id="time" required>
+                    <option value="">Select time slot</option>
+                    <option>09:00 AM - 10:00 AM</option>
+                    <option>10:30 AM - 11:30 AM</option>
+                    <option>12:00 PM - 01:00 PM</option>
+                    <option>02:00 PM - 03:00 PM</option>
+                    <option>03:30 PM - 04:30 PM</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Brand problem area</label>
+                  <select id="problemArea">
+                    <option>Low brand visibility</option>
+                    <option>Inconsistent messaging</option>
+                    <option>Weak online reputation</option>
+                    <option>No brand strategy</option>
+                    <option>Other / Not sure</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Tell Dave about your business & goals (optional)</label>
+                <textarea rows="3" id="message" placeholder="e.g., we have a great product but nobody recognizes us..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i> Request appointment</button>
+              <div id="formFeedback" class="submit-message" style="text-align:center; margin-top: 16px;"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p><i class="far fa-copyright"></i> 2025 Dave — Brand Architect. 50+ transformations & counting. Every brand has a story — let's rewrite yours.</p>
+    <p style="margin-top: 12px; font-size: 0.85rem;">📍 Global consultancy · Based in NYC · Virtual sessions worldwide</p>
+  </div>
+</footer>
+
+<script>
+  // set min date for appointment (today)
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  const minDate = `${yyyy}-${mm}-${dd}`;
+  const dateInput = document.getElementById('date');
+  if (dateInput) dateInput.setAttribute('min', minDate);
+
+  // handle booking form submission
+  const form = document.getElementById('appointmentForm');
+  const feedbackDiv = document.getElementById('formFeedback');
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const date = document.getElementById('date').value;
+    const timeSlot = document.getElementById('time').value;
+    
+    if (!name || !email || !phone || !date || !timeSlot) {
+      feedbackDiv.innerHTML = '<span style="color:#c0392b;"><i class="fas fa-exclamation-circle"></i> Please fill all required fields (*).</span>';
+      return;
+    }
+    if (!email.includes('@')) {
+      feedbackDiv.innerHTML = '<span style="color:#c0392b;"><i class="fas fa-envelope"></i> Valid email required.</span>';
+      return;
+    }
+    
+    // Simulate successful booking (fake send)
+    feedbackDiv.innerHTML = '<span style="color:#2c7da0;"><i class="fas fa-check-circle"></i> Thank you ' + name + '! Your appointment request for ' + date + ' at ' + timeSlot + ' has been sent. Dave will confirm within 24 hours via email/phone. Let’s boost your brand visibility!</span>';
+    form.reset();
+    // reset min date again after reset (optional)
+    if (dateInput) dateInput.setAttribute('min', minDate);
+    // clear after 5 seconds but keep visible
+    setTimeout(() => {
+      if (feedbackDiv.innerHTML.includes('Thank you')) {
+        // optionally keep but not necessary
+      }
+    }, 5000);
+  });
+
+  // small extra: smooth scroll for navigation links
+  document.querySelectorAll('.nav-links a, .btn-primary[href="#booking"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetElem = document.querySelector(targetId);
+        if (targetElem) {
+          e.preventDefault();
+          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
